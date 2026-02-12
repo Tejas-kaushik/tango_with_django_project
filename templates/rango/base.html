@@ -1,0 +1,14 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Rango{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <a href="{% url 'rango:index' %}">Home</a> |
+    <a href="{% url 'rango:about' %}">About</a>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>
