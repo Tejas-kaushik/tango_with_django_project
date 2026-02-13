@@ -1,0 +1,29 @@
+{% extends 'rango/base.html' %}
+
+{% block title %}{{ category.name }}{% endblock %}
+
+{% block content %}
+<h1>{{ category.name }}</h1>
+
+{% if category %}
+    {% if pages %}
+        <ul>
+            {% for page in pages %}
+                <li>
+                    <a href="{% url 'rango:goto' %}?page_id={{ page.id }}">{{ page.title }}</a>
+                    ({{ page.views }} views)
+                </li>
+            {% endfor %}
+        </ul>
+
+        <a href="{% url 'rango:add_page' category.slug %}">Add Page</a>
+
+    {% else %}
+        <strong>No pages currently in this category.</strong><br />
+        <a href="{% url 'rango:add_page' category.slug %}">Add Page</a>
+    {% endif %}
+{% else %}
+    <strong>The specified category does not exist.</strong>
+{% endif %}
+
+{% endblock %}
