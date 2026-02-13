@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-{% load static %}
-<html>
-<head>
-    <title>About</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <h1>Rango says here is the about page.</h1>
-    <p>about page</p>
-    <a href="{% url 'rango:index' %}">Index</a>
-</body>
-</html>
+{% extends 'rango/base.html' %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+<h1>Rango says here is the about page.</h1>
+<p>about page</p>
+<p><a href="{% url 'rango:index' %}">Index</a></p>
+{% endblock %}
