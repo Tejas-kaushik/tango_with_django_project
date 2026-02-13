@@ -1,4 +1,5 @@
 {% load static %}
+{% load rango_template_tags %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +9,9 @@
 <body>
     <a href="{% url 'rango:index' %}">Home</a> |
     <a href="{% url 'rango:about' %}">About</a>
+    <hr>
+    <h2>Top Categories</h2>
+    {% get_category_list %}
     <hr>
     {% block content %}{% endblock %}
 </body>
